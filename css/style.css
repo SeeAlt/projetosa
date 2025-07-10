@@ -1,0 +1,210 @@
+/*GENERAL STYLE*/
+  body{
+    background-color: white;
+  }
+
+/*HEADER*/
+  .header-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #131552;
+    color: white;
+    height: 60px;
+    width: 100%;
+    margin-bottom: 5px;
+    z-index: 50;
+    top: 0;
+    left: 0;
+
+  }
+  .header-text{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #menu {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    font-size: 30px;
+    user-select: none;
+  }
+/*END HEADER*/
+
+/*MENU*/
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #131552;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 35px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #818181;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    font-size: 36px;
+    margin-right: 50px;
+  }
+  
+  #menu {
+    transition: margin-right .5s;
+  }
+  
+  @media screen and (max-height: 1000px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .img-container {padding-left: 15px;
+      padding-right: 15px;}
+  }
+.logo{
+  height: 20px;
+  width: 20px;
+}
+/*END MENU*/
+
+/*BANNER*/
+.banner {
+  width: 100%; 
+  max-height: 300px; 
+  overflow: hidden; }
+
+.banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; 
+}
+
+/*CONTAINER*/
+.group-container{
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: space-between;
+  justify-content: center;
+}
+
+.box-container{
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 30px;
+  border-radius: 80px;
+  background-color: #131552;
+  color: #f1f1f1;
+  width: 300px;
+  min-width: 260px;
+  height: 500px;
+  min-height: 460px;
+}
+
+
+
+/*CONTAINER END*/
+
+/*PAGE*/
+.page-container {
+  width: 100%;
+  background-color: #131552;
+  color: #f1f1f1;
+  text-align: center;
+}
+/*PAGE END*/
+
+
+/*ANOTHER TAB*/
+
+
+/*GALERY*/
+.img-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-items: center;
+}
+.left-side-img{
+  display: flex;
+  flex-flow: column wrap;
+  float: left;
+  margin: 5px 20px 5px 20px;
+}
+.center-img{
+  display: flex;
+  justify-content: center;
+  height: 800px;
+  width: 800px;
+  margin: 10px 10px 10px 10px;
+}
+.right-side-img{
+  display: flex;
+  flex-flow: column wrap;
+  float: right;
+  margin: 5px 20px 5px 20px;
+}
+.side-img{
+  margin: 5px 20px 5px 20px;
+}
+/*TEXT HOVER IMAGE*/
+
+.description-container{
+  position: relative;
+  width: 50%;
+  max-width: 400px;
+}
+.img-description{
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); 
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+}
+.description-container:hover .img-description{
+  opacity: 1;
+  }
+/*GALERY END*/
+
+/*EMPLOYEE CONTACT CARD*/
+.all-contacts{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.card-contact{
+  margin: 10px;
+  background-color:#131552;
+  color: #f1f1f1;
+  text-align: center;
+  box-shadow: 5px 10px;
+}
+.button-contact{
+  box-shadow: 3px ;
+  padding: 5px;
+  border-radius: 5px;
+}
