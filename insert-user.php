@@ -6,27 +6,25 @@
 
         try {
             $username = $_POST["username"] ?? '';;
-            $userpassword = $_POST["userpassword"] ?? '';;
             $useremail = $_POST["useremail"] ?? '';;
+            $userpassword = $_POST["userpassword"] ?? '';;
             $usercpf = $_POST["usercpf"] ?? '';;
             $userphone = $_POST["userphone"] ?? '';;
-            $useraddress = $_POST["useraddress"] ?? '';;
             $isadmin = isset($_POST["isadmin"]) ? 1 : 0;
 
             if (empty($username)) {
                 throw new Exception("Nome não pode ser vazio.");
         }
         
-        $sql = "INSERT INTO tb_psa_user (user_name, user_password, user_email, user_cpf, user_phone, user_address, is_admin)
-                VALUES (:username, :userpassword, :useremail, :usercpf, :userphone, :useraddress, :isadmin)";
+        $sql = "INSERT INTO tb_psa_user (user_name, user_email,user_password,  user_cpf, user_phone, is_admin)
+                VALUES (:username, :useremail,:userpassword, :usercpf, :userphone, :isadmin)";
         $stmt = $pdo->prepare($sql);
 
         $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':userpassword', $userpassword);
         $stmt->bindParam(':useremail', $useremail);
+        $stmt->bindParam(':userpassword', $userpassword);
         $stmt->bindParam(':usercpf', $usercpf);
         $stmt->bindParam(':userphone', $userphone);
-        $stmt->bindParam(':useraddress', $useraddress);
         $stmt->bindParam(':isadmin', $isadmin);
 
         $stmt->execute();
