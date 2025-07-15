@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logging into an already existing account</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Menu()">
-    <div class="formulario">
-    <form>
-        <label for="tb_pas_login">Login:</label>
-        <input type="text" id="name" name="login" required>
-
+    <form id="loginForm" class="form-container">
+        <label for="useremail">Login:</label>
+        <input type="email" id="useremail" name="useremail" required>
+    
+        <input type="password" id="userpassword" name="userpassword" required>
         
+        <button id="login" type="submit">Entrar</button>
     </form>
-</div>
+
+    <div id="message" style="display:none;"></div>
+<script src="js/script-menu.js" defer></script>
+<script src="js/login.js"></script>
 </body>
 </html>

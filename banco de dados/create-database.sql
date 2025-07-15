@@ -1,3 +1,3 @@
-CREATE DATABASE projetosamm;
+CREATE DATABASE projetosa;
 
-USE projetosamm
+USE projetosa

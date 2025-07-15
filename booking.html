@@ -4,8 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Menu()">
-    
+    <form id="formReserva" class="form-container">
+        <label for="reservation_local">Local:</label>
+        <select id="reservation_local" name="reservation_local" required>
+          <option value="">Selecione</option>
+          <option value="Sala 1">Sala 1</option>
+          <option value="Varanda">Varanda</option>
+          <option value="Área externa">Área externa</option>
+        </select>
+      
+        <div class="form-row">
+          <div>
+            <label for="reservation_datehour">Data e Hora:</label>
+            <input type="datetime-local" id="reservation_datehour" name="reservation_datehour" required>
+          </div>
+          <div>
+            <label for="people_quantity">Quantidade de Pessoas (até 8):</label>
+            <input type="number" id="people_quantity" name="people_quantity" min="1" max="8" required>
+          </div>
+        </div>
+      
+        <button type="submit">Reservar Mesa</button>
+        <div id="reservaMessage"></div>
+      </form>
+      
+    <script src="js/script-menu.js" defer></script>
+    <script src="js/booking.js" defer></script>
 </body>
 </html>
