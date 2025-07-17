@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#formLogin").on("submit", function(e) {
+    $("#loginForm").on("submit", function(e) {
         e.preventDefault();
 
         $.ajax({

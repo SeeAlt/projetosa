@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Avaliação</title>
     <link rel="stylesheet" href="css/style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -11,27 +11,27 @@
 </head>
 <body onload="Menu()">
     <h2>Deixe sua avaliação</h2>
-  
-    <form id="formReview" class="form-container">
-      <label for="rating">Nota (1 a 5 estrelas):</label>
-      <select name="rating" id="rating" required>
-        <option value="">Selecione</option>
-        <option value="1">1 estrela</option>
-        <option value="2">2 estrelas</option>
-        <option value="3">3 estrelas</option>
-        <option value="4">4 estrelas</option>
-        <option value="5">5 estrelas</option>
-      </select>
-      
-      <label for="comment">Comentário (opcional):</label>
-      <textarea name="comment" id="comment" rows="5" maxlength="500" placeholder="Escreva seu comentário aqui..."></textarea>
-      
-      <button type="submit">Enviar Avaliação</button>
-    </form>
-    <div id="message"></div>
-</div>
 
-<script src="js/script-menu.js" defer></script>
-<script src="js/rating.js" defer></script>
+    <form id="formReview" class="form-container">
+        <label for="rating">Nota (1 a 5 estrelas):</label>
+        <select name="rating" id="rating" required>
+            <option value="">Selecione</option>
+            <option value="1">1 estrela</option>
+            <option value="2">2 estrelas</option>
+            <option value="3">3 estrelas</option>
+            <option value="4">4 estrelas</option>
+            <option value="5">5 estrelas</option>
+        </select>
+
+        <label for="comment">Comentário (opcional):</label>
+        <textarea name="comment" id="comment" rows="5" maxlength="500" placeholder="Escreva seu comentário aqui..."></textarea>
+
+        <button type="submit">Enviar Avaliação</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script src="js/script-menu.js" defer></script>
+    <script src="js/rating.js" defer></script>
 </body>
 </html>

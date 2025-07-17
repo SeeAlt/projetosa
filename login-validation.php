@@ -2,38 +2,35 @@
 session_start();
 require_once 'conexao.php';
 
-$user_email = $_POST['useremail'];
-$userpassword = $_POST['userpassword'];
+header('Content-Type: application/json');
+
+$useremail = $_POST['useremail'] ?? '';
+$userpassword = $_POST['userpassword'] ?? '';
 
 try {
-    $stmt = $pdo->prepare("SELECT * FROM tb_psa_user WHERE useremail = :useremail AND userpassword = :userpassword");
+    // Busca apenas pelo e-mail
+    $stmt = $pdo->prepare("SELECT * FROM tb_psa_user WHERE user_email = :useremail");
     $stmt->bindParam(':useremail', $useremail);
-    $stmt->bindParam(':userpassword', $userpassword);
     $stmt->execute();
 
-    $tb_psa_user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($tb_psa_user) {
-        $_SESSION['id_user']        = $tb_psa_user['iduser'];
-        $_SESSION['user_name']      = $tb_psa_user['username'];
-        $_SESSION['user_login']     = $tb_psa_user['userlogin'];
-        $_SESSION['user_email']     = $tb_psa_user['useremail'];
-        $_SESSION['user_password']  = $tb_psa_user['userpassword'];
-        $_SESSION['is_admin']       = $tb_psa_user['isadmin'];
-        $_SESSION['logged']         = true;
+    // Verifica se achou e compara senha com password_verify
+    if ($user && password_verify($userpassword, $user['user_password'])) {
+        $_SESSION['id_user']     = $user['id_user'];
+        $_SESSION['user_name']   = $user['user_name'];
+        $_SESSION['user_email']  = $user['user_email'];
+        $_SESSION['is_admin']    = $user['is_admin'];
+        $_SESSION['logged']      = 1;
 
         echo json_encode([
-            'success' => true,
+            'success' => 1,
             'redirect' => 'index.html'
         ]);
     } else {
-        echo json_encode(['success' => false, 'message' => 'E-mail ou senha incorretos.']);
+        echo json_encode(['success' => 0, 'message' => 'E-mail ou senha incorretos.']);
     }
 
 } catch (PDOException $e) {
-    echo json_encode(['success' => false, 'message' => 'Erro no banco de dados: ' . $e->getMessage()]);
-} catch (Exception $e) {
-    echo json_encode(['success' => false, 'message' => 'Erro inesperado: ' . $e->getMessage()]);
+    echo json_encode(['success' => 0, 'message' => 'Erro no banco de dados: ' . $e->getMessage()]);
 }
-?>
-
