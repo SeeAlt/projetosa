@@ -13,10 +13,13 @@ function Menu() {
   const headerText = document.createElement("div");
   headerText.setAttribute("class", "header-text");
   panel.appendChild(headerText)
+  const link = document.createElement("a");
   const title = document.createElement("h1");
-  title.setAttribute("href","index.html");
-  title.textContent = "Mesa do Marujo";
-  headerText.appendChild(title); /*Título do site, o nome */
+  link.setAttribute("href", "index.html");
+  link.textContent = "Mesa do Marujo";
+  headerText.appendChild(title);
+  title.appendChild(link);
+  headerText.appendChild(link); /*Título do site, o nome */
 
   /*menu do site, capaz de abrir e fechar */
   const navigation = document.createElement("div");
