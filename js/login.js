@@ -12,7 +12,7 @@ $(document).ready(function() {
                     $("#message").removeClass("error").addClass("success")
                         .text("Login realizado com sucesso!").fadeIn();
 
-                    //Redireciona após 1 segundo
+                    
                     setTimeout(() => {
                         window.location.href = response.redirect || "index.html";
                     }, 1000);
