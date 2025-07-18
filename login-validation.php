@@ -8,14 +8,14 @@ $useremail = $_POST['useremail'] ?? '';
 $userpassword = $_POST['userpassword'] ?? '';
 
 try {
-    // Busca apenas pelo e-mail
+   
     $stmt = $pdo->prepare("SELECT * FROM tb_psa_user WHERE user_email = :useremail");
     $stmt->bindParam(':useremail', $useremail);
     $stmt->execute();
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Verifica se achou e compara senha com password_verify
+    
     if ($user && password_verify($userpassword, $user['user_password'])) {
         $_SESSION['id_user']     = $user['id_user'];
         $_SESSION['user_name']   = $user['user_name'];
