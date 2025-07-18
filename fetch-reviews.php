@@ -5,7 +5,7 @@ require_once 'conexao.php';
 header('Content-Type: application/json');
 
 try {
-    // Seleciona avaliações mais recentes primeiro
+    
     $stmt = $pdo->prepare("
         SELECT r.rating, r.review_comment, r.review_date, u.user_name
         FROM tb_psa_review r
